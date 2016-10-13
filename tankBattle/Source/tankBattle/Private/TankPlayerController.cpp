@@ -3,6 +3,12 @@
 #include "tankBattle.h"
 #include "TankPlayerController.h"
 
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	AimTowardsCrosshair();
+}
+
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -22,4 +28,17 @@ void ATankPlayerController::BeginPlay()
 ATank* ATankPlayerController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+void ATankPlayerController::AimTowardsCrosshair()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("PlayerController ticking"));
+	if (!GetControlledTank())
+	{
+		return;
+	}
+
+	// Get world location of hit location from crosshair raycast
+	// If it hits the landscape
+		// Tell controlled tank to aim for this point
 }
