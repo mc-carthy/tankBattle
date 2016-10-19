@@ -8,7 +8,7 @@
 /**
  * 
  */
-UCLASS(meta = (BlueprintSpawnableComponent), hidecategories = ("Collision"))
+UCLASS(meta = (BlueprintSpawnableComponent))
 class TANKBATTLE_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
