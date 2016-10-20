@@ -13,11 +13,15 @@ UCLASS()
 class TANKBATTLE_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
+
 private:
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
-	ATank* GetControlledTank() const;
+
 	void AimTowardsCrosshair();
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 
